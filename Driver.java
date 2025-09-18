@@ -9,7 +9,7 @@ public class Driver {
 
         double [] c2 = {0,-2,0,0,-9};
         Polynomial p2 = new Polynomial(c2);
-        
+
         Polynomial s = p1.add(p2);
         System.out.println("s(0.1) = " + s.evaluate(0.1));
 

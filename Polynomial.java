@@ -6,8 +6,7 @@ class Polynomial
     double[] coefs;
     
     public Polynomial(){
-        coefs = new double[1];
-        coefs[0] = 0;
+        coefs = new double[] {0};
     }
     
     public Polynomial(double[] coefs){
@@ -18,7 +17,8 @@ class Polynomial
         }
     }
     
-    public void printPolyn(){
+    //helper method
+    public void printPolynomial(){
         
         for(int i = 0; i < coefs.length; i++){
             System.out.printf("%fx^%d ", coefs[i], i);
@@ -33,13 +33,13 @@ class Polynomial
         int maxl = maxLen(coefs, p.coefs);
         
         double[] sum = new double[maxl];
-        
-        for(int i = 0; i < coefs.length; i++){
-            sum[i] = coefs[i];
-        }
-        
-        for(int i = 0; i < p.coefs.length; i++){
-            sum[i] += p.coefs[i];
+
+        for(int i = 0; i < maxl; i++){
+
+            if(i < coefs.length) sum[i] += coefs[i];
+
+            if(i < p.coefs.length) sum[i] += p.coefs[i];
+
         }
         
         return new Polynomial(sum);
@@ -61,15 +61,10 @@ class Polynomial
             return true;
         }
         
-        
         return false;
     }
     
-    private int minLen(double[] p1, double[] p2){
-        if(p1.length < p2.length) return p1.length;
-        else return p2.length;
-    }
-    
+    //helper method
     private int maxLen(double[] p1, double[] p2){
         if(p1.length > p2.length) return p1.length;
         else return p2.length;
