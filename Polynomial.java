@@ -31,7 +31,6 @@ class Polynomial
     public Polynomial add(Polynomial p){
         
         int maxl = maxLen(coefs, p.coefs);
-        
         double[] sum = new double[maxl];
 
         for(int i = 0; i < maxl; i++){
@@ -57,9 +56,7 @@ class Polynomial
     }
     
     public boolean hasRoot(double x){
-        if(evaluate(x) == 0){
-            return true;
-        }
+        if(evaluate(x) == 0) return true;
         
         return false;
     }
@@ -67,7 +64,8 @@ class Polynomial
     //helper method
     private int maxLen(double[] p1, double[] p2){
         if(p1.length > p2.length) return p1.length;
-        else return p2.length;
+        
+        return p2.length;
     }
     
 }
